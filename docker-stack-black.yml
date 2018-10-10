@@ -1,0 +1,5 @@
+version: "3.3"
+
+services:
+  nginx:
+    image: "registry-snd.docker.iu.edu/esimw/docker-stack-deploy-demo:black"

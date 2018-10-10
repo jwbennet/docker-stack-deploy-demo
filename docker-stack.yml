@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+  nginx:
+    deploy:
+      replicas: 2
+      labels:
+        com.docker.ucp.mesh.http.80: external_route=http://nginx-demo.apps-snd.iu.edu,internal_port=80
+        # com.docker.lb.hosts: nginx-demo.apps-snd.iu.edu
+        # com.docker.lb.network: default
+        # com.docker.lb.port: 80
+    networks:
+      - default
+
+networks:
+  default:
+    driver: overlay
+    driver_opts:
+      encrypted: "true"
